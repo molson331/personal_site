@@ -9,3 +9,12 @@ class IndexView(TemplateView):
 	def get_context_data(self, **kwargs):
 		context = super(IndexView, self).get_context_data(**kwargs)
 		return context
+
+
+class EventView(TemplateView):
+
+	template_name = "event.html"
+
+	def get_context_data(self, **kwargs):
+		context = super(EventView, self).get_context_data(**kwargs)
+		return context

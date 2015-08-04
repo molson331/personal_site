@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		{% include "base.html" %}
+		<style type="text/css">
+			.page-section {
+				width: 100%;
+				height: 100vh;
+				min-height: 800px;
+				padding-top: 120px;
+				border-bottom: 20px solid #fff;
+				position: relative;
+			}
+
+			.page-section#childhood {
+				background: black url({{ STATIC_URL }}img/houston.jpg) center center no-repeat;
+			}
+
+			.page-section#family {
+				background: black  url({{ STATIC_URL }}img/family.jpg) center center no-repeat;
+			}
+
+			.page-section#education {
+				background: black url({{ STATIC_URL }}img/tower.jpg) top center no-repeat;
+			}
+
+			.page-section#pet {
+				background: black url({{ STATIC_URL }}img/dogs.jpg) bottom center no-repeat;
+			}
+
+			.page-section#interest {
+				background: black url({{ STATIC_URL }}img/hiking.jpg) bottom center no-repeat;
+			}
+
+			.page-section#sandiego {
+				background: black url({{ STATIC_URL }}img/beach.jpg) bottom center no-repeat;
+			}
+
+			.page-section p.caption {
+				color: #fff;
+				padding: 20px;
+				background: url({{ STATIC_URL }}img/trans_black_25.png);
+				text-shadow: 1px 1px 1px #000;
+			}
+
+			.page-section h2 {
+				font-size: 3em;
+				font-weight: 900;
+				color: #fff;
+				margin: 0 0 30px;
+				text-shadow: 2px 2px 2px #000;
+			}
+
+			.back-to-top {
+				display: inline-block;
+				clear: both;
+				background: #fff;
+				color: #333;
+				padding: 0 10px 5px;
+				margin: 20px 0 0;
+				text-shadow: none;
+			}
+
+			.back-to-top:hover {
+				background: #333;
+				color: #fff;
+				text-decoration: none;
+			}
+
+			.next-button {
+				position: absolute;
+				bottom: 20%;
+				left: 50%;
+			}
+		</style>
+	</head>
+	<body>
+		{% include "header.html" %}
+
+		<div class="jumbotron" style="padding-left: 60px; margin-bottom: 0px; height: 100vh; position: relative;">
+			<h1>About Me</h1>
+			<div class="next-button">
+				<a href="#" class="scroll-link btn btn-primary btn-lg" data-id="childhood">Learn More</a>
+			</div>
+		</div>
+
+		<div id="childhood" class="page-section">
+			<div class="container">
+				<h2>Early Childhood</h2>
+				<p class="caption">Caption Here<br/><a href="#" class="scroll-top back-to-top">&uarr;</a></p>
+			</div>
+			<div class="next-button">
+				<a href="#" class="scroll-link btn btn-primary btn-lg" data-id="family">Next</a>
+			</div>
+		</div>
+
+		<div id="family" class="page-section">
+			<div class="container">
+				<h2>Family</h2>
+				<p class="caption">Caption Here<br/><a href="#" class="scroll-top back-to-top">&uarr;</a></p>
+			</div>
+			<div class="next-button">
+				<a href="#" class="scroll-link btn btn-primary btn-lg" data-id="pet">Next</a>
+			</div>
+		</div>
+
+		<div id="pet" class="page-section">
+			<div class="container">
+				<h2>Pets</h2>
+				<p class="caption">Caption Here<br/><a href="#" class="scroll-top back-to-top">&uarr;</a></p>
+			</div>
+			<div class="next-button">
+				<a href="#" class="scroll-link btn btn-primary btn-lg" data-id="education">Next</a>
+			</div>
+		</div>
+
+		<div id="education" class="page-section">
+			<div class="container">
+				<h2>Education</h2>
+				<p class="caption">Caption Here<br/><a href="#" class="scroll-top back-to-top">&uarr;</a></p>
+			</div>
+			<div class="next-button">
+				<a href="#" class="scroll-link btn btn-primary btn-lg" data-id="sandiego">Next</a>
+			</div>
+		</div>
+
+		<div id="sandiego" class="page-section">
+			<div class="container">
+				<h2>San Diego</h2>
+				<p class="caption">Caption Here<br/><a href="#" class="scroll-top back-to-top">&uarr;</a></p>
+			</div>
+			<div class="next-button">
+				<a href="#" class="scroll-link btn btn-primary btn-lg" data-id="interest">Next</a>
+			</div>
+		</div>
+
+		<div id="interest" class="page-section">
+			<div class="container">
+				<h2>Interests</h2>
+				<p class="caption">Caption Here<br/><a href="#" class="scroll-top back-to-top">&uarr;</a></p>
+			</div>
+		</div>
+
+		{% include "footer.html" %}
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+				// navigation click actions
+				$('.scroll-link').on('click', function(event){
+					event.preventDefault();
+					var sectionID = $(this).attr("data-id");
+					scrollToID('#' + sectionID, 750);
+				});
+				// scroll to top action
+				$('.scroll-top').on('click', function(event) {
+					event.preventDefault();
+					$('html, body').animate({scrollTop:0}, 'slow');
+				});
+				// mobile nav toggle
+				$('#nav-toggle').on('click', function (event) {
+					event.preventDefault();
+					$('#main-nav').toggleClass("open");
+				});
+			});
+			// scroll function
+			function scrollToID(id, speed){
+				var offSet = 50;
+				var targetOffset = $(id).offset().top - offSet;
+				var mainNav = $('#main-nav');
+				$('html,body').animate({scrollTop:targetOffset}, speed);
+				if (mainNav.hasClass("open")) {
+					mainNav.css("height", "1px").removeClass("in").addClass("collapse");
+					mainNav.removeClass("open");
+				}
+			}
+			if (typeof console === "undefined") {
+			    console = {
+			        log: function() { }
+			    };
+			}
+		</script>
+	</body>
+</html>
