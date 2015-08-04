@@ -18,3 +18,12 @@ class EventView(TemplateView):
 	def get_context_data(self, **kwargs):
 		context = super(EventView, self).get_context_data(**kwargs)
 		return context
+
+
+class ResumeView(TemplateView):
+
+	template_name = "resume.html"
+
+	def get_context_data(self, **kwargs):
+		context = super(ResumeView, self).get_context_data(**kwargs)
+		return context

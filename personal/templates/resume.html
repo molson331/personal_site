@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		{% include "base.html" %}
+		<style>
+			img.bg {
+				/* Set rules to fill background */
+				min-height: 100%;
+				min-width: 1024px;
+
+				/* Set up proportionate scaling */
+				width: 100%;
+				height: auto;
+
+				/* Set up positioning */
+				position: fixed;
+				top: 0;
+				left: 0;
+			}
+
+			@media screen and (max-width: 1024px) {
+				img.bg {
+					left: 50%;
+					margin-left: -512px;
+				}
+			}
+
+			div#linkedin
+			{
+			    margin: 0 auto;
+			    position: fixed;
+			    z-index: 2;
+			    margin-left:-200px;
+			    left:20%;
+			    top:20%;
+			}
+		</style>
+	</head>
+	<body>
+		{% include "header.html" %}
+		<img src="{{ STATIC_URL }}img/technology.jpg" class="bg">
+		<div id="linkedin">
+			<script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+			<script type="IN/MemberProfile" data-id="https://www.linkedin.com/pub/melissa-olson/73/7a3/164" data-format="inline"></script>
+		</div>
+		{% include "footer.html" %}
+	</body>
+</html>
