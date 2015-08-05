@@ -8,12 +8,12 @@
 				height: 100vh;
 				min-height: 800px;
 				padding-top: 120px;
-				border-bottom: 20px solid #fff;
+				border-bottom: 50px solid #fff;
 				position: relative;
 			}
 
 			.page-section#childhood {
-				background: black url({{ STATIC_URL }}img/houston.jpg) center center no-repeat;
+				background: black url({{ STATIC_URL }}img/houston_new.jpg) center center no-repeat;
 			}
 
 			.page-section#family {
@@ -74,7 +74,7 @@
 			}
 
 			.navbar {
-				background-color: rgba(255,255,255,1);
+				background-color: rgba(255,255,255,0.6);
 				margin-bottom: 0px;
 			}
 		</style>
@@ -82,37 +82,11 @@
 	<body>
 		{% include "header.html" %}
 
-		<div class="jumbotron" style="padding-left: 60px; margin-bottom: 0px; height: 100vh; position: relative;">
-			<h1>About Me</h1>
-			<div class="next-button">
-				<a href="#" class="scroll-link btn btn-primary btn-lg" data-id="childhood">Learn More</a>
-			</div>
-		</div>
-
 		<div id="childhood" class="page-section">
 			<div class="container">
-				<h2>Early Childhood</h2>
-				<p class="caption">Caption Here<br/><a href="#" class="scroll-top back-to-top">&uarr;</a></p>
-			</div>
-			<div class="next-button">
-				<a href="#" class="scroll-link btn btn-primary btn-lg" data-id="family">Next</a>
-			</div>
-		</div>
-
-		<div id="family" class="page-section">
-			<div class="container">
-				<h2>Family</h2>
-				<p class="caption">Caption Here<br/><a href="#" class="scroll-top back-to-top">&uarr;</a></p>
-			</div>
-			<div class="next-button">
-				<a href="#" class="scroll-link btn btn-primary btn-lg" data-id="pet">Next</a>
-			</div>
-		</div>
-
-		<div id="pet" class="page-section">
-			<div class="container">
-				<h2>Pets</h2>
-				<p class="caption">Caption Here<br/><a href="#" class="scroll-top back-to-top">&uarr;</a></p>
+				<h2>Childhood</h2>
+				<p class="caption">I was born and bred in Houston, Texas and graduated from Jersey Village High School in Cypress-Fairbanks ISD. I am a self-professed band nerd and played the flute and piccolo in various bands from the sixth grade through college. It was during my senior year of high school that I got my first taste of programming and I was instantly hooked.
+				<br/><a href="#" class="scroll-top back-to-top">&uarr;</a></p>
 			</div>
 			<div class="next-button">
 				<a href="#" class="scroll-link btn btn-primary btn-lg" data-id="education">Next</a>
@@ -122,7 +96,8 @@
 		<div id="education" class="page-section">
 			<div class="container">
 				<h2>Education</h2>
-				<p class="caption">Caption Here<br/><a href="#" class="scroll-top back-to-top">&uarr;</a></p>
+				<p class="caption">In December 2011, I graduated from the University of Texas at Austin with a Bachelor of Science in Computer Science. Throughout college I was a member of the Longhorn Band and was an avid follower of UT Football.</p>
+				<p class="caption">After my sophmore and junior years, I interned at Qualcomm Incorporated in San Diego, California. Some of my work included developing a database and web tool to store audio and video clips for testing.<br/><a href="#" class="scroll-top back-to-top">&uarr;</a></p>
 			</div>
 			<div class="next-button">
 				<a href="#" class="scroll-link btn btn-primary btn-lg" data-id="sandiego">Next</a>
@@ -132,7 +107,27 @@
 		<div id="sandiego" class="page-section">
 			<div class="container">
 				<h2>San Diego</h2>
-				<p class="caption">Caption Here<br/><a href="#" class="scroll-top back-to-top">&uarr;</a></p>
+				<p class="caption">Upon graduating, I relocated to San Diego and began working full-time at Qualcomm as an engineer in the Multimedia Test team. My first project involved developing automation for testing computer vision APIs and applications for the Android operating system. Later I moved to another project developing an integrated automation framework that supports more than a hundred engineers in the Multimedia team and across other Qualcomm teams.<br/><a href="#" class="scroll-top back-to-top">&uarr;</a></p>
+			</div>
+			<div class="next-button">
+				<a href="#" class="scroll-link btn btn-primary btn-lg" data-id="family">Next</a>
+			</div>
+		</div>
+
+		<div id="family" class="page-section">
+			<div class="container">
+				<h2>Family</h2>
+				<p class="caption">My mother is a retired accountant and my father is a retired computer programmer. I am the youngest of three children, with sister Michelle and brother Michael. My sister is an Oncology fellow currently serving in the U.S. Navy and my brother is an IT Specialist working in Houston.<br/><a href="#" class="scroll-top back-to-top">&uarr;</a></p>
+			</div>
+			<div class="next-button">
+				<a href="#" class="scroll-link btn btn-primary btn-lg" data-id="pet">Next</a>
+			</div>
+		</div>
+
+		<div id="pet" class="page-section">
+			<div class="container">
+				<h2>Pets</h2>
+				<p class="caption">I have two Shetland Sheepdogs named Samson and Milo.<br/><a href="#" class="scroll-top back-to-top">&uarr;</a></p>
 			</div>
 			<div class="next-button">
 				<a href="#" class="scroll-link btn btn-primary btn-lg" data-id="interest">Next</a>
@@ -142,7 +137,7 @@
 		<div id="interest" class="page-section">
 			<div class="container">
 				<h2>Interests</h2>
-				<p class="caption">Caption Here<br/><a href="#" class="scroll-top back-to-top">&uarr;</a></p>
+				<p class="caption">In my free time I enjoy binge watching unhealthy amounts of television (especially Game of Thrones!), experiencing the great outdoors through hiking, reading a good book, and relaxing at home.<br/><a href="#" class="scroll-top back-to-top">&uarr;</a></p>
 			</div>
 		</div>
 
