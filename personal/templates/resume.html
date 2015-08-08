@@ -2,42 +2,14 @@
 <html>
 	<head>
 		{% include "base.html" %}
-		<style>
-			img.bg {
-				/* Set rules to fill background */
-				min-height: 100%;
-				min-width: 1024px;
-
-				/* Set up proportionate scaling */
-				width: 100%;
-				height: auto;
-
-				/* Set up positioning */
-				position: fixed;
-				top: 0;
-				left: 0;
-			}
-
-			@media screen and (max-width: 1024px) {
-				img.bg {
-					left: 50%;
-					margin-left: -512px;
-				}
-			}
-
+		<style type="text/css">
 			div#linkedin
 			{
 			    margin: 0 auto;
 			    position: fixed;
-			    z-index: 2;
 			    margin-left:-200px;
 			    left:20%;
 			    top:20%;
-			}
-
-			.navbar {
-				background-color: rgba(255,255,255,0.6);
-				margin-bottom: 0px;
 			}
 		</style>
 	</head>
