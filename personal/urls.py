@@ -1,8 +1,15 @@
 from django.conf.urls import patterns, include, url
 
-from views import EventView, ResumeView
+from django.contrib import admin
+admin.autodiscover()
+
+from views import IndexView, EventView, ResumeView
 
 urlpatterns = patterns('',
-    url(r'^event$', EventView.as_view(), name='event'),
-    url(r'^resume$', ResumeView.as_view(), name='resume'),
+	url(r'^admin/', include(admin.site.urls)),
+	url(r'^$', IndexView.as_view(), name='index'),
+
+	# Personal pages
+    url(r'^personal/event$', EventView.as_view(), name='event'),
+    url(r'^personal/resume$', ResumeView.as_view(), name='resume'),
 )
