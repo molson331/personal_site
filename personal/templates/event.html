@@ -7,33 +7,8 @@
 				width: 100%;
 				height: 100vh;
 				min-height: 800px;
-				padding-top: 120px;
 				border-bottom: 50px solid #fff;
 				position: relative;
-			}
-
-			.page-section#childhood {
-				background: black url({{ STATIC_URL }}img/houston.jpg) center center no-repeat;
-			}
-
-			.page-section#family {
-				background: black  url({{ STATIC_URL }}img/family.jpg) center center no-repeat;
-			}
-
-			.page-section#education {
-				background: black url({{ STATIC_URL }}img/tower.jpg) top center no-repeat;
-			}
-
-			.page-section#pet {
-				background: black url({{ STATIC_URL }}img/dogs.jpg) bottom center no-repeat;
-			}
-
-			.page-section#interest {
-				background: black url({{ STATIC_URL }}img/hiking.jpg) bottom center no-repeat;
-			}
-
-			.page-section#sandiego {
-				background: black url({{ STATIC_URL }}img/beach.jpg) bottom center no-repeat;
 			}
 
 			.page-section p.caption {
@@ -47,7 +22,7 @@
 				font-size: 3em;
 				font-weight: 900;
 				color: #fff;
-				margin: 0 0 30px;
+				margin: 80px 0 30px;
 				text-shadow: 2px 2px 2px #000;
 			}
 
@@ -69,72 +44,46 @@
 
 			.next-button {
 				position: absolute;
-				bottom: 20%;
-				left: 50%;
+				left: 45%;
+			}
+
+			.btn{
+
+				background: rgba(0,0,0,0.6);
+				color: #F2F2F2;
+
+				/* CSS Transition */
+				-webkit-transition: background .2s ease-in-out, border .2s ease-in-out;
+				-moz-transition: background .2s ease-in-out, border .2s ease-in-out;
+				-ms-transition: background .2s ease-in-out, border .2s ease-in-out;
+				-o-transition: background .2s ease-in-out, border .2s ease-in-out;
+				transition: background .2s ease-in-out, border .2s ease-in-out;
+
 			}
 		</style>
 	</head>
 	<body>
 		{% include "header.html" %}
 
-		<div id="childhood" class="page-section">
-			<div class="container">
-				<h2>Childhood</h2>
-				<p class="caption">I was born and bred in Houston, Texas and graduated from Jersey Village High School in Cypress-Fairbanks ISD. I am a self-professed band nerd and played the flute and piccolo in various bands from the sixth grade through college. It was during my senior year of high school that I got my first taste of programming and I was instantly hooked.
-				<br/><a href="#" class="scroll-top back-to-top">&uarr;</a></p>
+		{% for event in events %}
+			<div class="page-section" style="background: black url({{ STATIC_URL }}img/{{ event.image__filename }}) center center no-repeat;">
+				<div id="event{{ forloop.counter }}" class="container">
+					<h2>{{ event.title }}</h2>
+						<p class="caption">
+							{% for caption in event.captions %}
+								{{ caption.description }}<br/><br/>
+							{% endfor %}
+							<a href="#" class="scroll-top back-to-top">&uarr;</a>
+						</p>
+				</div>
+				{% if forloop.counter < events|length %}
+					<div class="next-button">
+						<a href="#" class="scroll-link btn btn-default btn-lg" data-id="event{{ forloop.counter|add:'1' }}" style="">Next  
+						<span id="download" class="glyphicon glyphicon-circle-arrow-down" aria-hidden="true"></span></a>
+					</div>
+				{% endif %}
 			</div>
-			<div class="next-button">
-				<a href="#" class="scroll-link btn btn-primary btn-lg" data-id="education">Next</a>
-			</div>
-		</div>
-
-		<div id="education" class="page-section">
-			<div class="container">
-				<h2>Education</h2>
-				<p class="caption">In December 2011, I graduated from the University of Texas at Austin with a Bachelor of Science in Computer Science. Throughout college I was a member of the Longhorn Band and was an avid follower of UT Football.</p>
-				<p class="caption">After my sophmore and junior years, I interned at Qualcomm Incorporated in San Diego, California. Some of my work included developing a database and web tool to store audio and video clips for testing.<br/><a href="#" class="scroll-top back-to-top">&uarr;</a></p>
-			</div>
-			<div class="next-button">
-				<a href="#" class="scroll-link btn btn-primary btn-lg" data-id="sandiego">Next</a>
-			</div>
-		</div>
-
-		<div id="sandiego" class="page-section">
-			<div class="container">
-				<h2>San Diego</h2>
-				<p class="caption">Upon graduating, I relocated to San Diego and began working full-time at Qualcomm as an engineer in the Multimedia Test team. My first project involved developing automation for testing computer vision APIs and applications for the Android operating system. Later I moved to another project developing an integrated automation framework that supports more than a hundred engineers in the Multimedia team and across other Qualcomm teams.<br/><a href="#" class="scroll-top back-to-top">&uarr;</a></p>
-			</div>
-			<div class="next-button">
-				<a href="#" class="scroll-link btn btn-primary btn-lg" data-id="family">Next</a>
-			</div>
-		</div>
-
-		<div id="family" class="page-section">
-			<div class="container">
-				<h2>Family</h2>
-				<p class="caption">My mother is a retired accountant and my father is a retired computer programmer. I am the youngest of three children, with sister Michelle and brother Michael. My sister is an Oncology fellow currently serving in the U.S. Navy and my brother is an IT Specialist working in Houston.<br/><a href="#" class="scroll-top back-to-top">&uarr;</a></p>
-			</div>
-			<div class="next-button">
-				<a href="#" class="scroll-link btn btn-primary btn-lg" data-id="pet">Next</a>
-			</div>
-		</div>
-
-		<div id="pet" class="page-section">
-			<div class="container">
-				<h2>Pets</h2>
-				<p class="caption">I have two Shetland Sheepdogs named Samson and Milo.<br/><a href="#" class="scroll-top back-to-top">&uarr;</a></p>
-			</div>
-			<div class="next-button">
-				<a href="#" class="scroll-link btn btn-primary btn-lg" data-id="interest">Next</a>
-			</div>
-		</div>
-
-		<div id="interest" class="page-section">
-			<div class="container">
-				<h2>Interests</h2>
-				<p class="caption">In my free time I enjoy binge watching unhealthy amounts of television (especially Game of Thrones!), experiencing the great outdoors through hiking, reading a good book, and relaxing at home.<br/><a href="#" class="scroll-top back-to-top">&uarr;</a></p>
-			</div>
-		</div>
+		{% endfor %}
 
 		{% include "footer.html" %}
 
