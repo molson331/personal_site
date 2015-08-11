@@ -7,9 +7,11 @@ from views import IndexView, EventView, ResumeView
 
 urlpatterns = patterns('',
 	url(r'^admin/', include(admin.site.urls)),
+	url(r'^grappelli/', include('grappelli.urls')),
+
 	url(r'^$', IndexView.as_view(), name='index'),
 
 	# Personal pages
-    url(r'^personal/event$', EventView.as_view(), name='event'),
-    url(r'^personal/resume$', ResumeView.as_view(), name='resume'),
+	url(r'^personal/event$', EventView.as_view(), name='event'),
+	url(r'^personal/resume$', ResumeView.as_view(), name='resume'),
 )

@@ -25,13 +25,16 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'personal'
+    'grappelli.dashboard',
+    'grappelli',
+    'django.contrib.admin',
+    'personal',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -89,3 +92,19 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+
+'''
+Grappelli Settings
+'''
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+    'django.core.context_processors.debug',
+    'django.core.context_processors.media',
+    "django.core.context_processors.request",
+    "django.core.context_processors.i18n",
+    'django.contrib.messages.context_processors.messages',
+    'django.core.context_processors.static'
+)
+
+GRAPPELLI_INDEX_DASHBOARD = 'dashboard.CustomIndexDashboard'
